@@ -1,14 +1,16 @@
-def sum_1_to_n():
-    user_input = input("请输入一个数字：")
+def sum_range():
     try:
-        n = int(user_input)
+        start = int(input("请输入起始数字："))
+        end = int(input("请输入结束数字："))
     except ValueError:
-        return "输入的不是一个数字，请重试"
-    
+        return "输入的不是数字，请重试"
+
+    if start > end:
+        return "起始数字不能大于结束数字，请重试"
+
     total = 0
-    for i in range(1, n + 1):
+    for i in range(start, end + 1):
         total += i
     return total
 
-while True:
-    print(sum_1_to_n())
+print(sum_range())
